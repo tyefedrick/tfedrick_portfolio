@@ -1,0 +1,12 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+//bundle exec rake assets:precompile
+
+//Always lower case
+
+//make sure to do "yarn watch:css" when you start
+
+.social-line {
+    width:50%;
+}
