@@ -11,11 +11,13 @@
 
 //_header.html.erb
 
- @media (max-width: 991px) {
-        .social-text {
-          display: none;
-        }
-      }
+ 
+
+@media (max-width: 991px) {
+  .social-text {
+    display: none;
+  }
+}
 
 .social-word{
   border-top: 1px solid; 
