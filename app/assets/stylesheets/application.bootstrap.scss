@@ -10,16 +10,17 @@
 //Use the source control button and commit when you hit a mile stone. 
 
 //_header.html.erb
-.social-line {
-    width:4.5%;
-    margin-bottom:2.5px;
-}
 
  @media (max-width: 991px) {
         .social-text {
           display: none;
         }
       }
+
+.social-word{
+  border-top: 1px solid; 
+  display: inline-block;
+}
 
 .tfedrick-header{
     padding-bottom:120px
