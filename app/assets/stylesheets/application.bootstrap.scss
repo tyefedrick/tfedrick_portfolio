@@ -15,6 +15,43 @@
   padding-bottom:11px;
 }
 
+.github-button{
+  display: inline-block;
+}
+@media (max-width: 991px) {
+  .github-button {
+    display: none;
+  }
+}
+
+.linkedin-button{
+  display: inline-block;
+}
+@media (max-width: 991px) {
+  .linkedin-button {
+    display: none;
+  }
+}
+
+
+.facebook-button{
+  display: inline-block;
+}
+@media (max-width: 991px) {
+  .facebook-button {
+    display: none;
+  }
+}
+
+.instagram-button{
+  display: inline-block;
+}
+@media (max-width: 991px) {
+  .instagram-button {
+    display: none;
+  }
+}
+
 @media (max-width: 991px) {
   .social-text {
     display: none;
@@ -24,6 +61,7 @@
 .social-word{
   border-top: 1px solid; 
   display: inline-block;
+  margin-right:30px;
 }
 
 .tfedrick-header{
