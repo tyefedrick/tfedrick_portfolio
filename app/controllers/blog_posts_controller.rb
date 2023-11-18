@@ -4,7 +4,6 @@ class BlogPostsController < ApplicationController
   end
 
   def show  
-    binding.pry
     @blog_post = BlogPost.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to blog_posts_path
