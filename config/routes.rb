@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
 
   get '/blog', to: 'blog_posts#index'
-  resources :blog_posts, only: [:index, :show]
+  #creates primary crud (create,read,update,and delete) actions
+  resources :blog_posts, only: [:index, :show, :new, :create]
   get "/blog_posts/:id", to: "blog_posts#show"
 
   get '/books', to: 'pages#books'

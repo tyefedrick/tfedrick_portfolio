@@ -1,6 +1,16 @@
-<h1>Blog Posts</h1>
+<div class="container-md create_blog_button">
+    <%=button_to "Create New Post", new_blog_post_path, method: :get %>
+</div>
 
-<% @blog_posts.each do |post| %>
-  <h2><%= link_to post.title, blog_post_path(post) %></h2>
-  <p><%= post.body %></p>
-<% end %>
+<div class="container-md">
+    <div class="row">
+        <div class="col-md-7">
+            <h1>Blog Posts</h1>
+
+            <% @blog_posts.each do |post| %>
+            <h2><%= link_to post.title, blog_post_path(post) %></h2>
+            <p><%= post.body %></p>
+            <% end %>
+    </div>
+    </div>
+</div>
