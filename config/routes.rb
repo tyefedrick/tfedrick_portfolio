@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root "pages#index"
 
   get '/about', to: 'pages#about'
-  get '/blog', to: 'pages#blog'
+
+  get '/blog', to: 'blog_posts#index'
+  resources :blog_posts, only: [:index, :show]
+
   get '/books', to: 'pages#books'
   get '/contact', to: 'pages#contact'
   get '/experimental', to: 'pages#experimental'
