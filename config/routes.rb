@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/blog', to: 'blog_posts#index'
   resources :blog_posts, only: [:index, :show]
+  get "/blog_posts/:id", to: "blog_posts#show"
 
   get '/books', to: 'pages#books'
   get '/contact', to: 'pages#contact'
