@@ -7,8 +7,8 @@
     <title>Tyler Fedrick Portfolio</title>
 
 <%# From BootStrap's Introduction Scripts. Needed to make Bootstrap work. %>
-<%= render 'shared/head_bootstrap_script' %>
-<%= render 'shared/header' %>
+    <%= render 'shared/head_bootstrap_script' %>
+    <%= render 'shared/header' %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,14 +16,21 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
-  <%# This is for any partials that are not scripts. %>
+<%# This is for any partials that are not scripts. %>
     <%= render 'shared/navigation' %>
   </head>
 
   <body>
-   <%# From BootStrap's Introduction. Scripts needed to make Bootstrap work. %> 
-<%= render 'shared/body_bootstrap_script' %>
+<%# From BootStrap's Introduction. Scripts needed to make Bootstrap work. %> 
+    <%= render 'shared/body_bootstrap_script' %>  
  
+<%# This is for the flash notices for the blog %> 
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
 
     <%= yield %>
 
