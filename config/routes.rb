@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resources :blog_posts, only: [:index, :show, :new, :create]
   get "/blog_posts/:id", to: "blog_posts#show"
 
-  get '/books', to: 'pages#books'
+  get '/books', to: 'book_review#index'
+  resources :book_review, only: [:index, :show, :new, :create]
+  get "/book_review/:id", to: "book_review#show"
+
   get '/contact', to: 'pages#contact'
   get '/experimental', to: 'pages#experimental'
   get '/index', to: 'pages#index'

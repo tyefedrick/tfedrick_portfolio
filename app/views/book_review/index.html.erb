@@ -1,0 +1,9 @@
+<h1>Book Review</h1>
+
+<% @book_review.each do |post|%>
+    <h2><%= link_to post.title, book_review_path(post) %></h2>
+    <p><%= post.genre %></p>
+    <p><%= post.rating %></p>
+    <p><%= post.body %></p>
+    <p><%= post.notes %></p>
+<% end %>
