@@ -1,5 +1,9 @@
 <h1>Book Review</h1>
 
+<div class="container-md create_blog_button">
+    <%=button_to "Create New Book Review", new_book_review_path, method: :get %>
+</div>
+
 <% @book_review.each do |post|%>
     <h2><%= link_to post.title, book_review_path(post) %></h2>
     <p><%= post.genre %></p>
