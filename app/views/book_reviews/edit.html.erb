@@ -1,0 +1,28 @@
+<%= form_with(model: @book_review, url: book_review_path(@book_review), method: :patch) do |form| %>
+  <div>
+    <%= form.label :title, style: "display:block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :genre, style: "display:block" %>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div>
+    <%= form.label :rating, style: "display:block" %>
+    <%= form.text_field :rating %>
+  </div>
+
+  <div>
+    <%= form.label :body, style: "display:block" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.label :notes, style: "display:block" %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <%= form.submit "Update Book Review" %>
+<% end %>

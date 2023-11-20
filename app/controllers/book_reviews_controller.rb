@@ -25,6 +25,28 @@ class BookReviewsController < ApplicationController
         end
       end
 
+      def edit
+        @book_review = BookReview.find(params[:id])
+      end
+    
+      def update
+        @book_review = BookReview.find(params[:id])
+    
+        if @book_review.update(book_review_params)
+          flash[:notice] = "Book Review Updated Successfully!"
+          redirect_to book_review_path(@book_review)
+        else
+          render :edit
+        end
+      end
+    
+      def destroy
+        @book_review = BookReview.find(params[:id])
+        @book_review.destroy
+        flash[:notice] = "Book Review Deleted Successfully!"
+        redirect_to book_reviews_path
+      end
+
 private
 
   def book_review_params

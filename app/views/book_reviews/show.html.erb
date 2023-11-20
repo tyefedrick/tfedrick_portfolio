@@ -3,3 +3,8 @@
     <%= @book_review.rating %>
     <%= @book_review.body %>
     <%= @book_review.notes %>
+
+    <!-- Your existing show template -->
+
+<%= button_to "Edit", edit_book_review_path(@book_review), method: :get %>
+<%= button_to "Delete", book_review_path(@book_review), method: :delete, data: { confirm: "Are you sure?" } %>
