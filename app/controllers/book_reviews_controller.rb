@@ -15,21 +15,20 @@ class BookReviewsController < ApplicationController
     end
 
     def create
-        @book_review = BookReview.new(title: params[:book_review][:title], body: params[:book_review][:body])
-        @book_review.save
-    #I need to add a notice. 
-       if @book_review.save
-        flash[:notice] = "Book Review Created Successfully!"
-        redirect_to book_reviews_url(@book_reivew)
-       else 
-        render :new
-       end
-    end
+        @book_review = BookReview.new(book_review_params)
+      
+        if @book_review.save
+          flash[:notice] = "Book Review Created Successfully!"
+          redirect_to book_review_path(@book_review)
+        else
+          render :new
+        end
+      end
 
 private
 
   def book_review_params
-    params.require(:book_review).permit(:title, :body)
+    params.require(:book_review).permit(:title, :genre, :rating, :body, :notes)
   end
 
 end

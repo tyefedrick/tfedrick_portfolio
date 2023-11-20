@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :blog_posts, only: [:index, :show, :new, :create]
 
   #remove the only
-  resources :book_reviews, only: [:index, :show, :new, :create]
+  resources :book_reviews
 
   get '/contact', to: 'pages#contact'
   get '/experimental', to: 'pages#experimental'
