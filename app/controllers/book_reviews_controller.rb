@@ -1,4 +1,5 @@
-class BookReviewController < ApplicationController
+#try this - rails generate scaffold
+class BookReviewsController < ApplicationController
     def index 
         @book_review = BookReview.all
     end
@@ -19,7 +20,7 @@ class BookReviewController < ApplicationController
     #I need to add a notice. 
        if @book_review.save
         flash[:notice] = "Book Review Created Successfully!"
-        redirect_to book_review_url(@book_reivew)
+        redirect_to book_reviews_url(@book_reivew)
        else 
         render :new
        end

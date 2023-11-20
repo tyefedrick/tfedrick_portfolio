@@ -3,15 +3,11 @@ Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
 
-  get '/blog', to: 'blog_posts#index'
   #creates primary crud (create,read,update,and delete) actions
   resources :blog_posts, only: [:index, :show, :new, :create]
-  get "/blog_posts/:id", to: "blog_posts#show"
 
-  get '/books', to: 'book_review#index'
-  resources :book_review, only: [:index, :show, :new, :create]
-  get "/book_review/:id", to: "book_review#show"
-  post "book_reviews", to: "book_reviews#create", as: :book_reviews
+  #remove the only
+  resources :book_reviews, only: [:index, :show, :new, :create]
 
   get '/contact', to: 'pages#contact'
   get '/experimental', to: 'pages#experimental'
