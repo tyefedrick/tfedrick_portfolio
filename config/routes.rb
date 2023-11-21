@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact'
   get '/experimental', to: 'pages#experimental'
   get '/index', to: 'pages#index'
-  get '/portfolio', to: 'pages#portfolio'
-
+ 
   resources :portfolios
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

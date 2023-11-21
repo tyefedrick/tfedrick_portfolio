@@ -1,0 +1,38 @@
+<div id="<%= dom_id portfolio %>">
+  <p>
+    <strong>Title:</strong>
+    <%= portfolio.title %>
+  </p>
+
+  <p>
+    <strong>About:</strong>
+    <%= portfolio.about %>
+  </p>
+
+  <p>
+    <strong>Resources:</strong>
+    <%= portfolio.resources %>
+  </p>
+
+  <p>
+    <strong>Photos:</strong>
+      <% if portfolio.photos.present? %>
+    <% portfolio.photos.each do |photo| %>
+      <%= image_tag photo.url, alt: 'Portfolio Photo' %>
+    <% end %>
+  <% else %>
+    <p>No photos available.</p>
+  <% end %>
+  </p>
+
+  <p>
+    <strong>Github link:</strong>
+    <%= link_to 'GitHub Repository', portfolio.github_link, class: 'button' %>
+  </p>
+
+  <p>
+    <strong>Website link:</strong>
+    <%= link_to 'Visit Website', portfolio.website_link, class: 'button' %>
+  </p>
+
+</div>
