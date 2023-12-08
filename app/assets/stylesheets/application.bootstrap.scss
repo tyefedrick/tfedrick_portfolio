@@ -1,5 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import 'actiontext.css';
 
 //bundle exec rake assets:precompile
 
@@ -68,5 +69,11 @@
 
   //2.Title
 .tfedrick-header{
-  padding-bottom:120px
-}@import 'actiontext.css';
+  padding-bottom:40px;
+}
+
+.header-headshot{
+  width: 5%;
+  height: auto;
+  margin-right: 10px;
+}
