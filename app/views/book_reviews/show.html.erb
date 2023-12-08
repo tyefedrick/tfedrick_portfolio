@@ -1,10 +1,18 @@
-    <%= @book_review.title %>
-    <%= @book_review.genre %>
-    <%= @book_review.rating %>
-    <%= @book_review.body %>
-    <%= @book_review.notes %>
-
-    <!-- Your existing show template -->
-
-<%= button_to "Edit", edit_book_review_path(@book_review), method: :get %>
-<%= button_to "Delete", book_review_path(@book_review), method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="container-md">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between">
+        <%= button_to "Edit", edit_book_review_path(@book_review), method: :get %>
+        <%= button_to "Delete", book_review_path(@book_review), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+    
+      <div class="review-details">
+        <%= @book_review.title %>
+        <%= @book_review.genre %>
+        <%= @book_review.rating %>
+        <%= @book_review.body %>
+        <%= @book_review.notes %>
+      </div>
+    </div>
+  </div>
+</div>
