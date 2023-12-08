@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   #remove the only
   resources :book_reviews
 
+  get '/resume', to: 'pages#resume'
   get '/contact', to: 'pages#contact'
   get '/experimental', to: 'pages#experimental'
   get '/index', to: 'pages#index'
