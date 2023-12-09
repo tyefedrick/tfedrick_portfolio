@@ -10,23 +10,3 @@ import "trix"
 import "@rails/actiontext"
 
 
-document.addEventListener('turbolinks:load', function() {
-    console.log("Page loaded with TurboLinks");
-    
-    const btnSwitch = document.getElementById('btnSwitch');
-    if (btnSwitch) {
-      console.log("Button element found");
-      
-      btnSwitch.addEventListener('click', () => {
-        console.log("Button clicked");
-        
-        const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-        if (currentTheme === 'dark') {
-          document.documentElement.setAttribute('data-bs-theme', 'light');
-        } else {
-          document.documentElement.setAttribute('data-bs-theme', 'dark');
-        }
-      });
-    }
-  });
-

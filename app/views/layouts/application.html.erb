@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%# a cookie will help you create a light and dark theme %>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,6 +9,10 @@
     <%# From BootStrap's Introduction Scripts. Needed to make Bootstrap work. %>
     <%= render 'shared/head_bootstrap_script' %>
     <%= render 'shared/header' %>
+
+    <!-- Include jQuery and Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
