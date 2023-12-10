@@ -1,0 +1,44 @@
+<body>
+
+    <h1>Your Webpage Content Goes Here</h1>
+
+    <!-- Your container to be downloaded as PDF -->
+    <div id="pdf-container" class = "full_career_history_resume">
+        <!-- Place your content within this container -->
+        <p>This is the content you want to include in the PDF.</p>
+    </div>
+
+    <!-- Download button -->
+    <button onclick="downloadAsPDF()">Download as PDF</button>
+
+    <script>
+        function downloadAsPDF() {
+            // Get the HTML content of the specific container
+            const element = document.getElementById('pdf-container');
+
+            // Use html2pdf.js to generate PDF
+            html2pdf(element, {
+                margin: 10,
+                filename: 'TFEDRICK.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 3 }, // Increase scale for higher DPI
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+
+            });
+
+    const outputOptions = function (pdf) {
+        // Override styles for text color
+        pdf.internal.pages.forEach(function (page) {
+            const objects = page.objs;
+            for (const obj in objects) {
+                if (objects[obj].type === 'text') {
+                    objects[obj].textColor = [0, 0, 0]; // Set the desired text color (black)
+                }
+            }
+        });
+    };
+
+    html2pdf(element, { ...pdfOptions, output: outputOptions });
+}
+    </script>
+</body>

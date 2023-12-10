@@ -84,3 +84,16 @@
 //about.html.erb
 
 
+.full_career_history_resume{
+        margin: 0;
+        padding: 10mm;
+}
+
+@media print {
+  body {
+    background-color: white !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+    color: black !important; // Add this line for black text color
+  }
+}
