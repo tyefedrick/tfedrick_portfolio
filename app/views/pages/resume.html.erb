@@ -1,0 +1,35 @@
+
+    <!-- Include html2pdf.js -->
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+    <!-- Optional: Define styles for print/PDF -->
+    <style>
+        @media print {
+            body {
+                background-color: white;
+                margin: 0;
+                padding: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Your Webpage Content Goes Here</h1>
+
+    <!-- Download button -->
+    <button onclick="downloadAsPDF()">Download as PDF</button>
+
+    <!-- Your webpage content -->
+
+    <script>
+        function downloadAsPDF() {
+            // Get the HTML content of the entire webpage
+            const element = document.body;
+
+            // Use html2pdf.js to generate PDF
+            html2pdf(element);
+        }
+    </script>
+</body>
+</html>
