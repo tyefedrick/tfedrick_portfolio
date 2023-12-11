@@ -94,7 +94,11 @@
   text-align: center;
 }
 
-table {
+.education_table{
+  margin-left: auto;
+  margin-right: auto; 
+}
+.full_career_history_resume_table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -107,7 +111,7 @@ table {
 }
 
 @media print {
-  body {
+  .full_career_history_resume_body {
     background-color: white !important;
     margin: 0 !important;
     padding: 10mm !important;
@@ -117,8 +121,14 @@ table {
     white-space: normal; /* Allow wrapping within the cell */
   }
 
-  /* Your existing styles for the table */
-  table {
+  .full_career_history_resume_title,.full_career_history_resume_subheader {
+    width: auto; /* Reset the width for printing */
+    page-break-inside: avoid; /* Avoid breaking within cells */
+    overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
+    white-space: normal; /* Allow wrapping within the cell */
+  }
+
+  .full_career_history_resume_table {
     width: auto; /* Reset the width for printing */
     page-break-inside: avoid; /* Avoid breaking within cells */
     overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
@@ -133,26 +143,32 @@ table {
     white-space: normal; /* Allow wrapping within the cell */
   }
 
-  ul {
+  .full_career_history_resume_ul {
+    width: auto; /* Reset the width for printing */
     page-break-inside: avoid; /* Avoid breaking within cells */
     overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
     white-space: normal; /* Allow wrapping within the cell */
+    margin-bottom: 10mm; /* Adjust the margin to prevent cutting off at the bottom */
   }
 
-  li {
+  .full_career_history_resume_li {
+    width: auto; /* Reset the width for printing */
     break-inside: avoid; /* Avoid breaking within list items */
     overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
     white-space: normal; /* Allow wrapping within the list item */
+    margin-bottom: 10mm; /* Adjust the margin to prevent cutting off at the bottom */
   }
-  ul.avoid-break {
+  .resume_avoid_break_ul {
     page-break-inside: avoid; /* Avoid breaking within cells */
     overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
     white-space: normal; /* Allow wrapping within the cell */
+    page-break-before: always;
   }
 
-  li.avoid-break {
+  .resume_avoid_break_li {
     break-inside: avoid; /* Avoid breaking within list items */
     overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
     white-space: normal; /* Allow wrapping within the list item */
+    page-break-after: always;
   }
 }
