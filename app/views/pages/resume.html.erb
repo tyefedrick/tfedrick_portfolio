@@ -1,10 +1,256 @@
 <body>
-    <h1>Your Webpage Content Goes Here</h1>
+
+<div class="container">
+
+<!-- Download button -->
+    <button onclick="downloadAsPDF()">Download as PDF</button>
+        <script>
+            function downloadAsPDF() {
+                // Get the HTML content of the specific container
+                const element = document.getElementById('pdf-container');
+
+                // Temporarily change text color to black
+                document.body.style.color = 'black';
+
+                // Use html2pdf.js to generate PDF
+                const pdfOptions = {
+                    margin: 10,
+                    filename: 'TFedrick_Full_Career_History_Resume.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 3 }, // Increase scale for higher DPI
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+
+                html2pdf(element, pdfOptions);
+
+                // Reset text color after download is complete
+                setTimeout(() => {
+                    document.body.style.color = ''; // Revert to original color
+                }, 3000); // Adjust the delay as needed
+            }
+        </script>
+
 
     <!-- Your container to be downloaded as PDF -->
     <div id="pdf-container" class="full_career_history_resume">
-        <!-- Place your content within this container -->
-        <p>This is the content you want to include in the PDF.</p>
+        <!-- PDF Content Goes Here -->
+
+        <h1 center>Tyler D. Fedrick </h1>
+
+        <h2>Skill Summary:</h2>
+
+            <p>I am a disciplined self-starter with over 8 years of finance, auditing, and compliance-related experience. Due to my experience in the finance industry and the completion of my MBA at the top of my class, I now excel in completing work in both a position within a team setting and a position without direct supervision. I have learned what it takes to lead annual audits in a highly regulated industry.</p>
+            <ul>
+                <li>Expert in decentralized command, teamwork, and delegating tasks. Each week I host weekly online training and compliance overviews for over 300 agents across the southeast region. During these trainings, it is imperative that I delegate roles to ensure that all pertinent topics can be covered in a timely and efficient manner.</li>
+                <li>With a client base in the 1,000s and over $1 billion in assets under management, I have learned to excel in presentation, customer service, and conflict resolution.</li>
+                <li>Strong attention to detail. When filling out applications I must ensure that all paperwork is filled out properly and all rules and regulations are followed in the storing and submission of the paperwork. Additionally, I must check the work of other agents and ensure all protocols have been properly followed.</li>
+            </ul>
+
+        <h2>Work Experience:</h2>
+             <table>
+                <tbody>
+                <tr>
+                    <th>Financial Services Manager</th>
+                    <td colspan="5">July 20th, 2020 – Present</td>
+                </tr>
+                <tr>
+                    <td colspan="5">124 Perimeter Park Rd STE#102 <br> Knoxville, TN 37922</td>
+                    <td colspan="3">Full-Time, 50 hours a week</td>
+                </tr>
+                <tr>
+                    <td colspan="5">PFS Investments</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>Job Focus - Management, Compliance, Auditing, and Advising</p>
+            <ul>
+                <li>Work with home office to ensure that all areas of the business are in compliance.</li>
+                <li>Complete the self-audit assessment for the book of business.</li>
+                <li>Meet with the auditor and the field supervisor on an annual basis to assist in their audit of the book of business. </li>
+                <li>Ensure that all 2,200 agents are going through the proper renewal steps to maintain their professional licenses.</li>
+                <li>Work to set up and maintain our corporate and business retirement plans.</li>
+                <li>Host annual compliance meetings for each of the satellite offices to review the current regulatory requirements, answer any questions that the agents have and update them on any changes that have been made.</li>
+                <li>Host weekly online meetings regarding compliance and other financial related topics.</li>
+                <li>Work to set up and maintain our corporate and business retirement plans. </li>
+                <li>Advise franchise owners and high-producing agents on developing long-term retention plans for their customers.</li>
+                <li>Train office staff on the importance of delegating and decentralized command.</li>
+                <li>Review new sales trade confirmations for any non-compliant discrepancies.</li>
+                <li>Meet with clients to ensure that the optimal financial strategy is met.</li>
+            </ul>
+
+           <table>
+                <tbody>
+                <tr>
+                    <th>Financial Relationship Consultant</th>
+                    <td colspan="5">October 5th, 2019 – July 20th, 2020</td>
+                </tr>
+                <tr>
+                    <td colspan="5">601 East Emory Rd. Powell, TN 37849</td>
+                    <td colspan="3">Full-Time 44 hours a week</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Regions Bank</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>Sales position within a local Regions branch. Position duties were a combination of sales, account maintenance, and teller services.</p>
+            <ul>
+                <li>Achieved branch targets and goals by identifying customer needs and providing appropriate guidance and perspective.</li>
+                <li>Achieved required levels of outbound phone calls.</li>
+                <li>Worked closely with Private Wealth, Financial Advisors, and Mortgage Representatives to generate quality leads. </li>
+                <li>Provided consistent optimal customer experience.</li>
+                <li>Completed basic account maintenance.  </li>
+                <li>Complete HELOC and various mortgage applications.</li>
+            </ul> 
+
+            <table>
+                <tbody>
+                <tr>
+                    <th>Sales Representative</th>
+                    <td colspan="5">March 14th, 2016 – October 5th, 2019</td>
+                </tr>
+                <tr>
+                    <td colspan="5">1 Primerica Pkwy Duluth, GA 30099</td>
+                    <td colspan="3">Full-Time 60 hours a week
+                <tr>
+                    <td colspan="5">Primerica</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>Self-starter role with an objective to build my own book of business.</p>
+            <ul>
+                <li>Prospect for clients.</li>
+                <li>Earn and maintain the proper financial licenses. (Listed Below)</li>
+                <li>Complete sales presentations for potential customers. </li>
+                <li>Take inbound calls.</li>
+                <li>Make outbound sales calls. </li>
+                <li>Maintain relationships with current customers.</li>
+                <li>Stay up to date on markets and finance related material.</li>
+            </ul> 
+
+            <table>
+                <tbody>
+                <tr>
+                    <th>Emergency Claim Adjuster</th>
+                    <td colspan="5">August 21st, 2017 – October 25th, 2017</td>
+                </tr>
+                <tr>
+                    <td colspan="5">15685 N. Cave Creek Road Phoenix, AZ 85032</td>
+                    <td colspan="3">Full-Time 80 hours a week 
+                <tr>
+                    <td colspan="5">Best IRS (Now: The Best Claims Solutions)</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>Short-term contract to adjust Florida's State Farm claims after Hurricane Irma. Note: Emergency Claim Adjusting is not a full-time job. Rather it is an intense short-term contract that allows you to serve a community in desperate need of insurance funds after a natural disaster.</p>
+            <ul>
+                <li>Complete a 40-hour Indiana Adjuster’s course and pass the exam within 72 hours.</li>
+                <li>Complete a two-week intense training for two weeks in Birmingham, AL </li>
+                <li>Complete claims 3-5 claims 7 days a week.</li>
+                <li>Inspect customer's property for physical damage.</li>
+                <li>Create and submit claims through Xactimate.</li>
+            </ul> 
+
+        <h2>Education:</h2>  
+            <table>
+                <tbody>
+                <tr>
+                    <th>M.B.A Master’s of Business Administration</th>
+                    <td colspan="5">Completion Date: August 13th, 2022</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Tusculum University</td>
+                    <td colspan="3">GPA: 3.90 
+                <tr>
+                    <td colspan="5">60 Shiloh Rd Tusculum, TN 37745</td>
+                   <td colspan="5">Honors / Summa Cum Laude </td> 
+                </tr>
+                <tr>
+                    <td colspan="5">30 Credit Hours</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <tbody>
+                <tr>
+                    <th>Bachelor’s of Science Business Administration</th>
+                    <td colspan="5">Completion Date: August 14th, 2021</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Tusculum University</td>
+                    <td colspan="3">GPA: 4.00 
+                <tr>
+                    <td colspan="5">60 Shiloh Rd Tusculum, TN 37745</td>
+                   <td colspan="5">Summa Cum Laude </td> 
+                </tr>
+                <tr>
+                    <td colspan="5">120 Credit Hours</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <tbody>
+                <tr>
+                    <th>Associates of Science General Studies</th>
+                    <td colspan="5">Completion Date: December 15th, 2018</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Pellissippi State Community College</td>
+                    <td colspan="3">GPA: 3.29
+                <tr>
+                    <td colspan="5">10915 Hardin Valley Rd, Knoxville, TN 37932</td>
+                   <td colspan="5"></td> 
+                </tr>
+                <tr>
+                    <td colspan="5">60 Credit Hours</td>
+                </tr>
+                </tbody>
+            </table>
+
+             <table>
+                <tbody>
+                <tr>
+                    <th>High School Diploma</th>
+                    <td colspan="5">Completion Date: May 16th, 2016</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Karns High School</td>
+                    <td colspan="3">GPA: 3.91
+                <tr>
+                    <td colspan="5">2710 Byington Solway Rd Knoxville, TN 37931</td>
+                   <td colspan="5"></td> 
+                </tr>
+                <tr>
+                    <td colspan="5">28.75 Credit Hours</td>
+                </tr>
+                </tbody>
+            </table>
+
+        <h2>Awards and Achievements:</h2> 
+            <ul>
+                <li>Winner of the 2021 Tusculum GLO-BUS competition where I competed against my graduating class in a neck-and-neck race for global market leadership in two product categories video cameras and drones. We competed in a global market arena selling to Europe-Africa, North America, Asia-Pacific, and Latin America. I had to make decisions relating to R&D, component usage, product performance, product line breadth, production operations, workforce compensation, outsourcing, pricing, sales and marketing, finance, and corporate citizenship and social responsibility. </li>
+                <li>Achieved the highest grade possible for my 68-page capstone project for my M.B.A. My project’s topic was on Leveraging CRM and Automated Marketing within the Financial Service’s Industry. The objective of the project was to research the value that a CRM and Automated Marketing system has for a financial advisory firm.  </li>
+            </ul> 
+
+        <h2>Language Skills:</h2> 
+            <ul>
+                <li>Fluent in speaking and writing English. </li>
+                <li>Beginner Spanish Level A2 / Actively studying. Can write, read, and speak on a basic level.  </li>
+            </ul> 
+
+        <h2>Licenses:</h2> 
+            <ul>
+                <li>Life & Health Insurance License NPN: 17956141 </li>
+                <li>FINRA SIE & Series 6, 63, 65, 26 CRD: 6667082 </li>
+            </ul> 
+
+        <h2>Professional Affiliations:</h2> 
+            <ul>
+                <li>Notary for the state of Tennessee </li>
+                <li>Member of FINRA’s Principal licensed designees </li>
+            </ul> 
     </div>
 
     <!-- Download button -->
@@ -35,4 +281,6 @@
             }, 3000); // Adjust the delay as needed
         }
     </script>
+
+</div>
 </body>

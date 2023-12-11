@@ -98,3 +98,22 @@
     color: black !important; // Add this line for black text color
   }
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.th, td {
+  text-align: left;
+  padding-right: 5mm;
+  width: 50%; /* Set the width to 50% for two equal columns */
+}
+
+@media (max-width: 600px) {
+  th, td {
+    width: 100%; /* Make columns take full width on small screens */
+    display: block;
+  }
+}
