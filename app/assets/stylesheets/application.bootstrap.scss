@@ -90,14 +90,6 @@
         padding: 10mm;
 }
 
-@media print {
-  body {
-    background-color: white !important;
-    margin: 0 !important;
-    padding: 10mm !important;
-    color: black !important; // Add this line for black text color
-  }
-}
 
 table {
   width: 100%;
@@ -111,9 +103,53 @@ table {
   width: 50%; /* Set the width to 50% for two equal columns */
 }
 
-@media (max-width: 600px) {
+@media print {
+  body {
+    background-color: white !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+    color: black !important;
+    page-break-inside: avoid; /* Avoid breaking within cells */
+    overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
+    white-space: normal; /* Allow wrapping within the cell */
+  }
+
+  /* Your existing styles for the table */
+  table {
+    width: auto; /* Reset the width for printing */
+    page-break-inside: avoid; /* Avoid breaking within cells */
+    overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
+    white-space: normal; /* Allow wrapping within the cell */
+  }
+
   th, td {
-    width: 100%; /* Make columns take full width on small screens */
-    display: block;
+    width: auto; /* Reset the width for printing */
+    display: table-cell;
+    page-break-inside: avoid; /* Avoid breaking within cells */
+    overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
+    white-space: normal; /* Allow wrapping within the cell */
+  }
+
+  ul {
+    page-break-inside: avoid; /* Avoid breaking within cells */
+    overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
+    white-space: normal; /* Allow wrapping within the cell */
+  }
+
+  li {
+    break-inside: avoid; /* Avoid breaking within list items */
+    overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
+    white-space: normal; /* Allow wrapping within the list item */
+  }
+  ul.avoid-break {
+    page-break-inside: avoid; /* Avoid breaking within cells */
+    overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
+    white-space: normal; /* Allow wrapping within the cell */
+  }
+
+  li.avoid-break {
+    break-inside: avoid; /* Avoid breaking within list items */
+    overflow-wrap: break-word; /* Allow long words to be broken and wrapped */
+    white-space: normal; /* Allow wrapping within the list item */
   }
 }
