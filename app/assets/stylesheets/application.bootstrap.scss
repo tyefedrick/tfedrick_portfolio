@@ -84,12 +84,15 @@
 //about.html.erb
 
 
-//resume
+//resume -- Idea we need to give everything in the resume a class. From there we give every class the media print fix. My theroy is that since not everything has those fixes, that is what is causing the PDF to break.
 .full_career_history_resume{
         margin: 0;
         padding: 10mm;
 }
 
+.full_career_history_resume_title{
+  text-align: center;
+}
 
 table {
   width: 100%;
