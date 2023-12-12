@@ -165,7 +165,6 @@ ul, ol {
     font-family: 'Playfair Display', sans-serif;
     font-style: var(--primary-button-font-font-style);
     font-weight: var(--primary-button-font-font-weight);
-    text-transform: var(--primary-button-font-text-transform);
     letter-spacing: var(--primary-button-font-letter-spacing);
     line-height: var(--primary-button-font-line-height);
     font-size: 64px;
@@ -286,4 +285,11 @@ ul, ol {
     white-space: normal; /* Allow wrapping within the list item */
     page-break-after: always;
   }
+}
+
+//Footer 
+.footer_box{
+  border-top: 1px solid rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  box-shadow: 0 3px 4px -1px rgba(0,0,0,.25);
 }
