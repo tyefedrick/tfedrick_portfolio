@@ -14,6 +14,84 @@
 
 //application.html.erb
 
+//Root
+:root {
+  --site-title-font-font-family: 'Playfair Display', sans-serif;
+  --site-title-font-font-style: normal;
+  --site-title-font-font-weight: 500;
+  --site-title-font-text-transform: none;
+  --site-title-font-letter-spacing: 0em;
+  --site-title-font-line-height: 1.3em;
+  --site-title-font-font-size: 2rem;
+  --site-title-font-font-size-value: 2;
+
+  --body-font-font-family: 'Poppins', sans-serif;
+  --body-font-font-style: normal;
+  --body-font-font-weight: 300;
+  --body-font-text-transform: none;
+  --body-font-letter-spacing: .02em;
+  --body-font-line-height: 1.8em;
+
+
+  --primary-button-font-font-family: 'Poppins', sans-serif;
+  --primary-button-font-font-style: normal;
+  --primary-button-font-font-weight: 500;
+  --primary-button-font-text-transform: uppercase;
+  --primary-button-font-letter-spacing: .12em;
+  --primary-button-font-line-height: 1.2em;
+  --primary-button-font-font-size: .9rem;
+  --primary-button-font-font-size-value: .9;
+}
+
+body {
+  font-family: var(--body-font-font-family);
+  font-style: var(--body-font-font-style);
+  font-weight: var(--body-font-font-weight);
+  text-transform: var(--body-font-text-transform);
+  letter-spacing: var(--body-font-letter-spacing);
+  line-height: var(--body-font-line-height);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--site-title-font-font-family);
+  font-style: var(--site-title-font-font-style);
+  font-weight: var(--site-title-font-font-weight);
+  text-transform: var(--site-title-font-text-transform);
+  letter-spacing: var(--site-title-font-letter-spacing);
+  line-height: var(--site-title-font-line-height);
+  font-size: var(--site-title-font-font-size);
+  font-size-value: var(--site-title-font-font-size-value);
+}
+
+.btn {
+  font-family: var(--primary-button-font-font-family);
+  font-style: var(--primary-button-font-font-style);
+  font-weight: var(--primary-button-font-font-weight);
+  text-transform: var(--primary-button-font-text-transform);
+  letter-spacing: var(--primary-button-font-letter-spacing);
+  line-height: var(--primary-button-font-line-height);
+  font-size: var(--primary-button-font-font-size);
+}
+
+table {
+  font-family: var(--body-font-font-family);
+  font-style: var(--body-font-font-style);
+  font-weight: var(--body-font-font-weight);
+  text-transform: var(--body-font-text-transform);
+  letter-spacing: var(--body-font-letter-spacing);
+  line-height: var(--body-font-line-height);
+}
+
+ul, ol {
+  font-family: var(--body-font-font-family);
+  font-style: var(--body-font-font-style);
+  font-weight: var(--body-font-font-weight);
+  text-transform: var(--body-font-text-transform);
+  letter-spacing: var(--body-font-letter-spacing);
+  line-height: var(--body-font-line-height);
+}
+
+
 //_navigation.html.erb
 .nav_bar{
   border-top: 1px solid rgba(0,0,0,.15);
@@ -81,6 +159,29 @@
   margin-right:55px;
 }
 
+
+  //Title Button 
+  .index-button {
+    font-family: 'Playfair Display', sans-serif;
+    font-style: var(--primary-button-font-font-style);
+    font-weight: var(--primary-button-font-font-weight);
+    text-transform: var(--primary-button-font-text-transform);
+    letter-spacing: var(--primary-button-font-letter-spacing);
+    line-height: var(--primary-button-font-line-height);
+    font-size: 64px;
+    text-decoration: none; /* Remove default link underline */
+    display: inline-block;
+    border: none;
+    color: #dc3545;
+    background-color: transparent;
+    cursor: pointer;
+    transition: text-shadow 0.3s;
+  }
+  
+  .index-button:hover {
+    color: #ff3333;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 10px rgba(0, 0, 0, 0.8);
+  }
   //2.Title
 .tfedrick-header{
   padding-bottom:40px;
