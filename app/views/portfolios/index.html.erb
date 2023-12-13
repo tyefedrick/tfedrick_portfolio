@@ -1,89 +1,98 @@
-<div class="container-md">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h1>Portfolio</h1>
+<% @portfolios.each_with_index do |portfolio, index| %>
+  <div class="col-md-4">
+    <div class="portfolio-item">
+      <!-- Display photos (constant) -->
+      <div class="portfolio-photos">
+        <% if portfolio.photos.present? %>
+          <% portfolio.photos.each do |photo| %>
+            <% if photo.present? %>
+              <%= image_tag photo.url, alt: 'Portfolio Photo' %>
+            <% else %>
+              <p>No photos available.</p>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>No photos available.</p>
+        <% end %>
+      </div>
+
+      <!-- Portfolio content (initially hidden) -->
+      <div class="portfolio-content">
+        <!-- Portfolio title initially visible at the bottom -->
+        <div class="portfolio-title">
+          <%= portfolio.title %>
+        </div>
+        <p>
+          <%= portfolio.about %>
+        </p>
+        <p>
+          <strong>Resources:</strong>
+          <%= portfolio.resources %>
+        </p>
+        <!-- Links to GitHub and Website -->
+        <p>
+          <strong>Github link:</strong>
+          <%= link_to 'GitHub Repository', portfolio.github_link, class: 'button' %>
+        </p>
+        <p>
+          <strong>Website link:</strong>
+          <%= link_to 'Visit Website', portfolio.website_link, class: 'button' %>
+        </p>
+      </div>
     </div>
   </div>
-</div>
-
-<div id="portfolios">
-  <% @portfolios.each_with_index do |portfolio, index| %>
-    <% if index % 3 == 0 %>
-      <div class="row">
-    <% end %>
-    
-    <div class="col-md-4">
-      <div class="portfolio-item">
-        <div class="portfolio-content">
-          <%= render portfolio %>
-          
-          <p>
-            <%= link_to "Show this portfolio", portfolio %>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <% if (index + 1) % 3 == 0 || index == @portfolios.size - 1 %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+<% end %>
 
 <%= link_to "New portfolio", new_portfolio_path %>
 
 <style>
-  .portfolio-item {
-    border: 1px solid #ccc;
-    padding: 0px;
-    margin: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
+ /* Add CSS for the portfolio-item */
+/* Style the portfolio item */
+.portfolio-item {
+  border: 1px solid #ccc;
+  margin: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  height: 300px; /* Set a fixed height for portfolio-item */
+  position: relative; /* Add this */
+}
 
-  .portfolio-item .portfolio-title {
-    padding: 10px;
-    background-color: white;
-    display: none; /* Initially hide the title */
-  }
+/* Style the portfolio image */
+.portfolio-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adjust the image to cover the container */
+}
 
-  /* Show the title on hover */
-  .portfolio-item:hover .portfolio-title {
-    display: block;
-  }
+/* Style the portfolio content (initially hidden) */
+.portfolio-content {
+  position: absolute;
+  bottom: 0; /* Display content at the bottom */
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9); /* Add a background color */
+  padding: 10px;
+  transition: transform 0.3s;
+  transform: translateY(100%); /* Initially hide the content below the box */
+  color: black;
+  z-index: 1; /* Set a higher z-index to make it appear on top */
+}
 
-  /* Initially hide the portfolio content */
-  .portfolio-item .portfolio-content {
-    transform: translateY(85%);
-    padding: 10px;
-    background-color: white;
-    transition: transform 0.3s;
-  }
+/* Style the content inside the portfolio item box */
+.portfolio-content p {
+  margin: 5px 0;
+}
 
-  /* Rise up the portfolio content on hover */
-  .portfolio-item:hover .portfolio-content {
-    transform: translateY(0);
-  }
+/* Style the "Show this portfolio" link */
+.portfolio-content a {
+  text-decoration: none;
+  color: #000000;
+}
 
-  /* Style the content inside each portfolio item box */
-  .portfolio-content p {
-    margin: 5px 0;
-  }
-
-  /* Style the "Show this portfolio" link */
-  .portfolio-content a {
-    text-decoration: none;
-    color: #007bff;
-  }
-</style>
-
-<script>
-  window.addEventListener("scroll", function() {
-    var portfolioTitles = document.querySelectorAll(".portfolio-title");
-    portfolioTitles.forEach(function(title) {
-      title.style.display = "none";
-    });
-  });
-</script>
+/* Show the portfolio content on hover */
+.portfolio-item:hover .portfolio-content {
+  opacity: 1;
+  transform: translateY(0);
+}

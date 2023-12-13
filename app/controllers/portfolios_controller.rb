@@ -3,11 +3,14 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios or /portfolios.json
   def index
+    ActiveStorage::Current.url_options = { host: request.base_url }
+
     @portfolios = Portfolio.all
   end
 
   # GET /portfolios/1 or /portfolios/1.json
   def show
+    ActiveStorage::Current.url_options = { host: request.base_url }
   end
 
   # GET /portfolios/new
@@ -22,9 +25,14 @@ class PortfoliosController < ApplicationController
   # POST /portfolios or /portfolios.json
   def create
     @portfolio = Portfolio.new(portfolio_params)
-
+  
     respond_to do |format|
       if @portfolio.save
+        # Attach the uploaded photo to the portfolio
+        if params[:portfolio][:photos].present?
+          @portfolio.photos.attach(params[:portfolio][:photos])
+        end
+        
         format.html { redirect_to portfolio_url(@portfolio), notice: "Portfolio was successfully created." }
         format.json { render :show, status: :created, location: @portfolio }
       else
@@ -65,6 +73,6 @@ class PortfoliosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def portfolio_params
-      params.require(:portfolio).permit(:title, :about, :resources, :photos, :github_link, :website_link)
+      params.require(:portfolio).permit(:title, :about, :resources, :github_link, :website_link, photos: [])
     end
 end
