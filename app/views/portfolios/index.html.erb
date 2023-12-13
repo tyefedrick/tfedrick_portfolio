@@ -1,12 +1,10 @@
 <div class="container-md">
   <div class="row">
-    <div class="col-md-7">
-      <h1>Portfolios</h1>
-
+    <div class="col-md-12 text-center">
+      <h1>Portfolio</h1>
     </div>
   </div>
 </div>
-
 
 <div id="portfolios">
   <% @portfolios.each_with_index do |portfolio, index| %>
@@ -16,11 +14,13 @@
     
     <div class="col-md-4">
       <div class="portfolio-item">
-        <%= render portfolio %>
-      
-        <p>
-          <%= link_to "Show this portfolio", portfolio %>
-        </p>
+        <div class="portfolio-content">
+          <%= render portfolio %>
+          
+          <p>
+            <%= link_to "Show this portfolio", portfolio %>
+          </p>
+        </div>
       </div>
     </div>
 
@@ -34,10 +34,56 @@
 
 <style>
   .portfolio-item {
-    border: 1px solid #ccc; /* Add a border around each item */
-    padding: 10px; /* Add some padding to create space between the content and the border */
-    margin: 10px; /* Add margin to create space between each portfolio item */
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Add a subtle box shadow for a 3D effect */
-    border-radius: 5px; /* Optionally, round the corners of the box */
+    border: 1px solid #ccc;
+    padding: 0px;
+    margin: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .portfolio-item .portfolio-title {
+    padding: 10px;
+    background-color: white;
+    display: none; /* Initially hide the title */
+  }
+
+  /* Show the title on hover */
+  .portfolio-item:hover .portfolio-title {
+    display: block;
+  }
+
+  /* Initially hide the portfolio content */
+  .portfolio-item .portfolio-content {
+    transform: translateY(85%);
+    padding: 10px;
+    background-color: white;
+    transition: transform 0.3s;
+  }
+
+  /* Rise up the portfolio content on hover */
+  .portfolio-item:hover .portfolio-content {
+    transform: translateY(0);
+  }
+
+  /* Style the content inside each portfolio item box */
+  .portfolio-content p {
+    margin: 5px 0;
+  }
+
+  /* Style the "Show this portfolio" link */
+  .portfolio-content a {
+    text-decoration: none;
+    color: #007bff;
   }
 </style>
+
+<script>
+  window.addEventListener("scroll", function() {
+    var portfolioTitles = document.querySelectorAll(".portfolio-title");
+    portfolioTitles.forEach(function(title) {
+      title.style.display = "none";
+    });
+  });
+</script>

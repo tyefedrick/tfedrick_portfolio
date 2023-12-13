@@ -1,5 +1,5 @@
 <button class= "btn btn-danger" id= "btnSwitch">
-Mode 
+Choose Your Side 
 </button>
     <script type="text/javascript">
         document.getElementById('btnSwitch').addEventListener('click', () => {
@@ -14,13 +14,14 @@ Mode
 
 <div class="btn-group">
   <button class="btn btn-danger" id="btnSwitch" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Mode
+    Choose Your Side
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#" id="switchToLight">Light Mode</a>
-    <a class="dropdown-item" href="#" id="switchToDark">Dark Mode</a>
+    <a class="dropdown-item" href="#" id="switchToLight">Light Side</a>
+    <a class="dropdown-item" href="#" id="switchToDark">Dark Side</a>
   </div>
 </div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('switchToLight').addEventListener('click', function(event) {
