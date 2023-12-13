@@ -1,48 +1,49 @@
-<% @portfolios.each_with_index do |portfolio, index| %>
-  <div class="col-md-4">
-    <div class="portfolio-item">
-      <!-- Display photos (constant) -->
-      <div class="portfolio-photos">
-        <% if portfolio.photos.present? %>
-          <% portfolio.photos.each do |photo| %>
-            <% if photo.present? %>
-              <%= image_tag photo.url, alt: 'Portfolio Photo' %>
-            <% else %>
-              <p>No photos available.</p>
+<div class="row">
+  <% @portfolios.each_with_index do |portfolio, index| %>
+    <div class="col-md-3"> <!-- Use col-md-3 to create four boxes in a row -->
+      <div class="portfolio-item">
+        <!-- Display photos (constant) -->
+        <div class="portfolio-photos">
+          <% if portfolio.photos.present? %>
+            <% portfolio.photos.each do |photo| %>
+              <% if photo.present? %>
+                <%= image_tag photo.url, alt: 'Portfolio Photo' %>
+              <% else %>
+                <p>No photos available.</p>
+              <% end %>
             <% end %>
+          <% else %>
+            <p>No photos available.</p>
           <% end %>
-        <% else %>
-          <p>No photos available.</p>
-        <% end %>
-      </div>
-
-      <!-- Portfolio content (initially hidden) -->
-      <div class="portfolio-content">
-        <!-- Portfolio title initially visible at the bottom -->
-        <div class="portfolio-title">
-          <%= portfolio.title %>
         </div>
-        <p>
-          <%= portfolio.about %>
-        </p>
-        <p>
-          <strong>Resources:</strong>
-          <%= portfolio.resources %>
-        </p>
-        <!-- Links to GitHub and Website -->
-        <p>
-          <strong>Github link:</strong>
-          <%= link_to 'GitHub Repository', portfolio.github_link, class: 'button' %>
-        </p>
-        <p>
-          <strong>Website link:</strong>
-          <%= link_to 'Visit Website', portfolio.website_link, class: 'button' %>
-        </p>
+
+        <!-- Portfolio content (initially hidden) -->
+        <div class="portfolio-content">
+          <!-- Portfolio title initially visible at the bottom -->
+          <div class="portfolio-title">
+            <%= portfolio.title %>
+          </div>
+          <p>
+            <%= portfolio.about %>
+          </p>
+          <p>
+            <strong>Resources:</strong>
+            <%= portfolio.resources %>
+          </p>
+          <!-- Links to GitHub and Website -->
+          <p>
+            <strong>Github link:</strong>
+            <%= link_to 'GitHub Repository', portfolio.github_link, class: 'button' %>
+          </p>
+          <p>
+            <strong>Website link:</strong>
+            <%= link_to 'Visit Website', portfolio.website_link, class: 'button' %>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>
 <%= link_to "New portfolio", new_portfolio_path %>
 
 <style>
@@ -75,7 +76,7 @@
   background-color: rgba(255, 255, 255, 0.9); /* Add a background color */
   padding: 10px;
   transition: transform 0.3s;
-  transform: translateY(100%); /* Initially hide the content below the box */
+  transform: translateY(80%); /* Initially hide the content below the box */
   color: black;
   z-index: 1; /* Set a higher z-index to make it appear on top */
 }
