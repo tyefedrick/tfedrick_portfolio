@@ -31,14 +31,14 @@
             <%= portfolio.resources %>
           </p>
           <!-- Links to GitHub and Website -->
-          <p>
-            <strong>Github link:</strong>
-            <%= link_to 'GitHub Repository', portfolio.github_link, class: 'button' %>
-          </p>
-          <p>
-            <strong>Website link:</strong>
-            <%= link_to 'Visit Website', portfolio.website_link, class: 'button' %>
-          </p>
+          <div class="button-group">
+            <%= link_to portfolio.github_link, class: 'btn btn-primary', target: "_blank" do %>
+              <i class="fab fa-github"></i> GitHub
+            <% end %>
+            <%= link_to portfolio.website_link, class: 'btn btn-secondary', target: "_blank" do %>
+              <i class="fas fa-external-link-alt"></i> View
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -74,9 +74,9 @@
   left: 0;
   right: 0;
   background-color: rgba(255, 255, 255, 0.9); /* Add a background color */
-  padding: 10px;
+  padding: 2px;
   transition: transform 0.3s;
-  transform: translateY(80%); /* Initially hide the content below the box */
+  transform: translateY(78%); /* Initially hide the content below the box */
   color: black;
   z-index: 1; /* Set a higher z-index to make it appear on top */
 }
@@ -96,4 +96,16 @@
 .portfolio-item:hover .portfolio-content {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Custom CSS */
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Add space between buttons */
+  align-items: center; /* Center align buttons vertically */
+}
+
+.button-group .btn {
+  flex: 1; /* Make both buttons equal width */
+  margin-right: 10px; /* Add margin between buttons */
 }
