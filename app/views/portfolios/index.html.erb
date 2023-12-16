@@ -1,51 +1,73 @@
-<div class="row">
-  <% @portfolios.each_with_index do |portfolio, index| %>
-    <div class="col-md-3"> <!-- Use col-md-3 to create four boxes in a row -->
-      <div class="portfolio-item">
-        <!-- Display photos (constant) -->
-        <div class="portfolio-photos">
-          <% if portfolio.photos.present? %>
-            <% portfolio.photos.each do |photo| %>
-              <% if photo.present? %>
-                <%= image_tag photo.url, alt: 'Portfolio Photo' %>
-              <% else %>
-                <p>No photos available.</p>
-              <% end %>
-            <% end %>
-          <% else %>
-            <p>No photos available.</p>
-          <% end %>
-        </div>
+<div class="container text-center">
+  <h1>Portfolio</h1>
+</div>
 
-        <!-- Portfolio content (initially hidden) -->
-        <div class="portfolio-content">
-          <!-- Portfolio title initially visible at the bottom -->
-          <div class="portfolio-title">
-            <%= portfolio.title %>
+<div class="container-fluid text-center">
+    <div class="col">
+      <%= link_to "New portfolio", new_portfolio_path, class: 'btn btn-primary btn-lg btn-block' %>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @portfolios.each_with_index do |portfolio, index| %>
+      <div class="col-md-3"> <!-- Use col-md-3 to create four boxes in a row -->
+        <div class="portfolio-item">
+          <!-- Edit button container (initially hidden) -->
+          <div class="portfolio-edit-button">
+            <%= link_to "Edit", edit_portfolio_path(portfolio), class: 'btn btn-primary' %>
           </div>
-          <p>
-            <%= portfolio.about %>
-          </p>
-          <p>
-            <strong>Resources:</strong>
-            <%= portfolio.resources %>
-          </p>
-          <!-- Links to GitHub and Website -->
-          <div class="button-group">
-            <%= link_to portfolio.github_link, class: 'btn btn-primary', target: "_blank" do %>
-              <i class="fab fa-github"></i> GitHub
+          
+          <!-- Display photos (constant) -->
+          <div class="portfolio-photos">
+            <% if portfolio.photos.present? %>
+              <% portfolio.photos.each do |photo| %>
+                <% if photo.present? %>
+                  <%= image_tag photo.url, alt: 'Portfolio Photo' %>
+                <% else %>
+                  <p>No photos available.</p>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p>No photos available.</p>
             <% end %>
-            <%= link_to portfolio.website_link, class: 'btn btn-secondary', target: "_blank" do %>
-              <i class="fas fa-external-link-alt"></i> View
-            <% end %>
+          </div>
+
+          <!-- Portfolio content (initially hidden) -->
+          <div class="portfolio-content">
+            <!-- Portfolio title initially visible at the bottom -->
+            <div class="portfolio-title">
+              <%= portfolio.title %>
+            </div>
+            <p>
+              <%= portfolio.about %>
+            </p>
+            <p>
+              <strong>Resources:</strong>
+              <%= portfolio.resources %>
+            </p>
+            <!-- Links to GitHub and Website -->
+            <div class="button-group">
+              <%= link_to portfolio.github_link, class: 'btn btn-primary', target: "_blank" do %>
+                <i class="fab fa-github"></i> GitHub
+              <% end %>
+              <%= link_to portfolio.website_link, class: 'btn btn-secondary', target: "_blank" do %>
+                <i class="fas fa-external-link-alt"></i> View
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-<%= link_to "New portfolio", new_portfolio_path %>
+  
 
+
+
+
+<script>
+</script>
 <style>
  /* Add CSS for the portfolio-item */
 /* Style the portfolio item */
@@ -108,4 +130,25 @@
 .button-group .btn {
   flex: 1; /* Make both buttons equal width */
   margin-right: 10px; /* Add margin between buttons */
+}
+
+
+/* Style the "Edit" button container (initially hidden) */
+.portfolio-edit-button {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  left: 10px; /* Adjust the left position as needed */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s;
+  z-index: 2; /* Ensure it appears above other elements */
+}
+
+/* Show the "Edit" button container on hover */
+.portfolio-item:hover .portfolio-edit-button {
+  opacity: 1;
+}
+
+.portfolio-title {
+  background-color: lightblue;
+  /* Other styles for text color, padding, etc. */
 }
