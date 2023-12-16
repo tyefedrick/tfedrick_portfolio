@@ -1,17 +1,3 @@
-<button class= "btn btn-danger" id= "btnSwitch">
-Choose Your Side 
-</button>
-    <script type="text/javascript">
-        document.getElementById('btnSwitch').addEventListener('click', () => {
-        if (document.documentElement.getAttribute ('data-bs-theme') =='dark'){
-            document.documentElement.setAttribute('data-bs-theme', 'light')
-        }
-        else {
-            document.documentElement.setAttribute ('data-bs-theme','dark')
-        }
-        })
-    </script>
-
 <div class="btn-group">
   <button class="btn btn-danger" id="btnSwitch" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Choose Your Side
@@ -23,17 +9,17 @@ Choose Your Side
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('switchToLight').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.documentElement.setAttribute('data-bs-theme', 'light');
-    });
+  document.getElementById('switchToLight').addEventListener('click', function(event) {
+  event.preventDefault();
+  console.log('Switching to light theme');
+  document.documentElement.setAttribute('data-bs-theme', 'light');
+});
 
-    document.getElementById('switchToDark').addEventListener('click', function(event) {
-      event.preventDefault();
-      document.documentElement.setAttribute('data-bs-theme', 'dark');
-    });
-  });
+document.getElementById('switchToDark').addEventListener('click', function(event) {
+  event.preventDefault();
+  console.log('Switching to dark theme');
+  document.documentElement.setAttribute('data-bs-theme', 'dark');
+});
 </script>
 
 

@@ -1,0 +1,14 @@
+1. Light and dark mode toggler.
+    <button class= "btn btn-danger" id= "btnSwitch">
+    Choose Your Side 
+    </button>
+        <script type="text/javascript">
+            document.getElementById('btnSwitch').addEventListener('click', () => {
+            if (document.documentElement.getAttribute ('data-bs-theme') =='dark'){
+                document.documentElement.setAttribute('data-bs-theme', 'light')
+            }
+            else {
+                document.documentElement.setAttribute ('data-bs-theme','dark')
+            }
+            })
+        </script>
