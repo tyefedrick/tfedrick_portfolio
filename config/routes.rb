@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get '/resume', to: 'pages#resume'
   get '/contact', to: 'pages#contact'
+  get 'contact', to: 'contacts#new', as: 'new_contact'
+  post 'contact', to: 'contacts#create', as: 'create_contact'
+
+
   get '/experimental', to: 'pages#experimental'
   get '/index', to: 'pages#index'
  
