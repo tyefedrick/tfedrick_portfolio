@@ -1,11 +1,16 @@
-<h1>Editing portfolio</h1>
+<div class="container-lg">
+  <div class="container-md text-center">
+    <h1>Editing portfolio</h1>
+  </div>
 
-<%= render "form", portfolio: @portfolio %>
+    <%= render "form", portfolio: @portfolio %>
 
-<br>
+    <br>
 
-<div>
-  <%= link_to "Show this portfolio", @portfolio %> |
-  <%= link_to "Back to portfolios", portfolios_path %> |
-  <%= link_to "Delete", @portfolio, method: :delete, data: { confirm: 'Are you sure you want to delete this portfolio?' }, class: 'btn btn-danger' %>
+    <div>
+      <%= link_to "Show this portfolio", @portfolio, class: 'btn btn-primary' %> |
+      <%= link_to "Cancel", portfolios_path, class: 'btn btn-secondary' %> |
+      <%= link_to "Delete", @portfolio, method: :delete, data: { confirm: 'Are you sure you want to delete this portfolio?' }, class: 'btn btn-danger' %>
+    </div>
+
 </div>
