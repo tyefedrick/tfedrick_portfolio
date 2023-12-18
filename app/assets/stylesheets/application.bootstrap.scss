@@ -305,3 +305,9 @@
   border-bottom: 1px solid rgba(0,0,0,.15);
   box-shadow: 0 3px 4px -1px rgba(0,0,0,.25);
 }
+
+.footer-container {
+  max-width: 1440px; /* Set the maximum width to 1440 pixels */
+  margin: 0 auto; /* Center the container horizontally */
+  /* Add any other styling you need for your footer here */
+}
