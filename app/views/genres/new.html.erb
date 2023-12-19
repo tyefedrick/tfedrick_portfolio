@@ -5,3 +5,13 @@
   </div>
   <%= f.submit "Create Genre" %>
 <% end %>
+
+<!-- Display existing genres -->
+<% if @existing_genres.any? %>
+  <h2>Existing Genres:</h2>
+  <ul>
+    <% @existing_genres.each do |existing_genre| %>
+      <li><%= existing_genre.name %></li>
+    <% end %>
+  </ul>
+<% end %>
