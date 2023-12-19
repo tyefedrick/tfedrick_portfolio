@@ -11,7 +11,10 @@
   <h2>Existing Genres:</h2>
   <ul>
     <% @existing_genres.each do |existing_genre| %>
-      <li><%= existing_genre.name %></li>
+      <li>
+        <%= existing_genre.name %>
+        <%= link_to "Show Options", genre_path(existing_genre) %>
+      </li>
     <% end %>
   </ul>
 <% end %>

@@ -14,6 +14,36 @@
             render 'new'
         end
         end
+
+        def edit
+            @genre = Genre.find(params[:id])
+          end
+        
+          def update
+            @genre = Genre.find(params[:id])
+            if @genre.update(genre_params)
+              flash[:success] = 'Genre updated successfully.'
+              redirect_to genre_path(@genre)
+            else
+              render 'edit'
+            end
+          end
+        
+
+
+        def destroy
+            @genre = Genre.find(params[:id])
+            if @genre.destroy
+              flash[:success] = 'Genre deleted successfully.'
+            else
+              flash[:error] = 'Failed to delete genre.'
+            end
+            redirect_to new_genre_path
+          end
+
+        def show
+            @genre = Genre.find(params[:id])
+        end
     
         private
     
