@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_07_155654) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_19_004436) do
   create_table "abouts", force: :cascade do |t|
     t.string "title"
     t.json "content"
@@ -69,6 +69,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_07_155654) do
     t.integer "rating"
     t.text "body"
     t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "book_reviews_genres", id: false, force: :cascade do |t|
+    t.integer "book_review_id", null: false
+    t.integer "genre_id", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,8 +5,8 @@
     </div>
 
     <div>
-        <%=form.label :genre, style: "display:block"%>
-        <%=form.text_field :genre %>
+        <%= form.label :genre_ids, 'Genres', style: 'display:block' %>
+        <%= form.collection_select(:genre_ids, Genre.all, :id, :name, {}, multiple: true) %>
     </div>
 
     <div>

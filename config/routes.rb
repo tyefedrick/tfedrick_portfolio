@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :blog_posts, only: [:index, :show, :new, :create]
 
   #remove the only
-  resources :book_reviews
+  resources :book_reviews, except: [:show]  # Modify as needed
+  resources :genres, only: [:new, :create]
 
   get '/resume', to: 'pages#resume'
   get '/contact', to: 'pages#contact'
