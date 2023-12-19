@@ -2,6 +2,7 @@
 
   class BookReviewsController < ApplicationController
         def index 
+          @search_query = params[:title]
           @genres = Genre.all
           @selected_genres = params[:genre_ids] || []
           
@@ -11,6 +12,10 @@
             @book_reviews = BookReview.includes(:genres).where(genres: { id: @selected_genres }).distinct
           end
           
+          if @search_query.present?
+            @book_reviews = @book_reviews.where("title ILIKE ?", "%#{@search_query}%")
+          end
+
           @all_reviews = BookReview.all  # Fetch all book reviews
         end
 
