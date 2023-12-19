@@ -1,36 +1,36 @@
-<div class="btn-group">
-  <button class="btn btn-danger" id="btnSwitch" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Choose Your Side
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#" id="switchToLight">Light Side</a>
-    <a class="dropdown-item" href="#" id="switchToDark">Dark Side</a>
+<div class="header-container">  
+  <div class="btn-group">
+    <button class="btn btn-danger" id="btnSwitch" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Choose Your Side
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#" id="switchToLight">Light Side</a>
+      <a class="dropdown-item" href="#" id="switchToDark">Dark Side</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('switchToLight').addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log('Switching to light theme');
+    document.documentElement.setAttribute('data-bs-theme', 'light');
+  });
+
+  document.getElementById('switchToDark').addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log('Switching to dark theme');
+    document.documentElement.setAttribute('data-bs-theme', 'dark');
+  });
+  </script>
+
+
+  <%= render 'shared/social_media_bar' %>
+
+
+  <div class="container-lg text-center tfedrick-header">
+      <div class="d-flex flex-row align-items-center justify-content-center">
+          <a href="/index.html" class="index-button">Tyler Fedrick</a>
+      </div>
   </div>
 </div>
-
-<script>
-  document.getElementById('switchToLight').addEventListener('click', function(event) {
-  event.preventDefault();
-  console.log('Switching to light theme');
-  document.documentElement.setAttribute('data-bs-theme', 'light');
-});
-
-document.getElementById('switchToDark').addEventListener('click', function(event) {
-  event.preventDefault();
-  console.log('Switching to dark theme');
-  document.documentElement.setAttribute('data-bs-theme', 'dark');
-});
-</script>
-
-
-<%= render 'shared/social_media_bar' %>
-
-
-<div class="container-lg text-center tfedrick-header">
-    <div class="d-flex flex-row align-items-center justify-content-center">
-        <a href="/index.html" class="index-button">Tyler Fedrick</a>
-    </div>
-</div>
-
-
 
