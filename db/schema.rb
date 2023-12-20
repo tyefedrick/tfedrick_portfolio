@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_20_033028) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_20_035316) do
   create_table "abouts", force: :cascade do |t|
     t.string "title"
     t.json "content"
@@ -77,21 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_20_033028) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "book_reviews", force: :cascade do |t|
-    t.string "title"
-    t.string "genre"
-    t.integer "rating"
-    t.text "body"
-    t.text "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date "release_date"
-    t.integer "page_count"
-    t.date "review_posted_date"
-    t.string "isbn"
-    t.string "publisher"
-    t.string "link"
-  end
+# Could not dump table "book_reviews" because of following StandardError
+#   Unknown type 'attachment' for column 'image'
 
   create_table "book_reviews_genres", id: false, force: :cascade do |t|
     t.integer "book_review_id", null: false

@@ -5,7 +5,7 @@
         <%= button_to "Edit", edit_book_review_path(@book_review), method: :get %>
         <%= button_to "Delete", book_review_path(@book_review), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
-    
+
       <div class="review-details">
         <p>Title: <%= @book_review.title %></p>
         <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %></p>
@@ -19,6 +19,14 @@
         <p>ISBN: <%= @book_review.isbn %></p>
         <p>Publisher: <%= @book_review.publisher %></p>
         <p>Link: <%= @book_review.link %></p>
+
+        <div class="review-details">
+        
+          <% if @book_review.image.attached? %>
+          <%= image_tag @book_review.image %>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>
