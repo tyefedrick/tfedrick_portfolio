@@ -7,12 +7,18 @@
     </div>
     
       <div class="review-details">
-        <%= @book_review.title %>
+        <p>Title: <%= @book_review.title %></p>
         <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %></p>
         <p>Authors: <%= @book_review.authors.pluck(:name).join(', ') %></p>
-        <%= @book_review.rating %>
-        <%= @book_review.body %>
-        <%= @book_review.notes %>
+        <p>Rating: <%= @book_review.rating %></p>
+        <p>Body: <%= @book_review.body %></p>
+        <p>Notes: <%= @book_review.notes %></p>
+        <p>Release Date: <%= @book_review.release_date %></p>
+        <p>Page Count: <%= @book_review.page_count %></p>
+        <p>Review Posted Date: <%= @book_review.review_posted_date %></p>
+        <p>ISBN: <%= @book_review.isbn %></p>
+        <p>Publisher: <%= @book_review.publisher %></p>
+        <p>Link: <%= @book_review.link %></p>
       </div>
     </div>
   </div>

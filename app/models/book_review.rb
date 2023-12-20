@@ -4,4 +4,13 @@ class BookReview < ApplicationRecord
     has_and_belongs_to_many :authors
     has_and_belongs_to_many :genres
     validates :body, presence: true
+
+
+
+  validates :release_date, presence: true
+  validates :page_count, presence: true
+  validates :review_posted_date, presence: true
+  validates :isbn, presence: true
+  validates :publisher, presence: true
+  validates :link, presence: true
 end

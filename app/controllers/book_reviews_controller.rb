@@ -62,11 +62,12 @@
             flash[:notice] = "Book Review Deleted Successfully!"
             redirect_to book_reviews_path
           end
-
+          
     private
 
       def book_review_params
-        params.require(:book_review).permit(:title, :rating, :body, :notes, genre_ids: [], author_ids: [])
+        params.require(:book_review).permit(:title, :rating, :body, :notes, :release_date, :page_count, :review_posted_date,
+        :isbn, :publisher, :link, genre_ids: [], author_ids: [])
       end
 
     end

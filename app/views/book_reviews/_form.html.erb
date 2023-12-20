@@ -34,6 +34,37 @@
         <%=form.text_area :notes%>
     </div>
 
+        <!-- New fields -->
+    <div class="field">
+        <%= form.label :release_date %>
+        <%= form.date_field :release_date %>
+    </div>
+
+    <div class="field">
+        <%= form.label :page_count %>
+        <%= form.number_field :page_count %>
+    </div>
+
+    <div class="field">
+        <%= form.label :review_posted_date %>
+        <%= form.date_field :review_posted_date %>
+    </div>
+
+    <div class="field">
+        <%= form.label :isbn %>
+        <%= form.text_field :isbn %>
+    </div>
+
+    <div class="field">
+        <%= form.label :publisher %>
+        <%= form.text_field :publisher %>
+    </div>
+
+    <div class="field">
+        <%= form.label :link %>
+        <%= form.text_field :link %>
+    </div>
+
     <%=form.submit %>
 <%end%>
 
