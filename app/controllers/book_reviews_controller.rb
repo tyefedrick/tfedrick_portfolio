@@ -3,6 +3,7 @@
   class BookReviewsController < ApplicationController
         def index 
           @search_query = params[:title]
+          @authors = Author.all 
           @genres = Genre.all
           @selected_genres = params[:genre_ids] || []
           
@@ -65,7 +66,7 @@
     private
 
       def book_review_params
-        params.require(:book_review).permit(:title, :rating, :body, :notes, genre_ids: [])
+        params.require(:book_review).permit(:title, :rating, :body, :notes, genre_ids: [], author_ids: [])
       end
 
     end

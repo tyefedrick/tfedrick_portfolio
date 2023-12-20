@@ -1,0 +1,7 @@
+<%= form_for @author, url: author_path(@author), method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.submit "Update Author", class: 'btn btn-primary' %>
+<% end %>

@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   #remove the only
   resources :book_reviews
-  resources :genres 
+  resources :genres
+  resources :authors
 
 
 

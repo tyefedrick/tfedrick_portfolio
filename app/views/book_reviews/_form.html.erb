@@ -9,6 +9,13 @@
         <%= form.collection_select(:genre_ids, Genre.all, :id, :name, {}, multiple: true) %>
     </div>
 
+   <div>
+        <%= form.label :author_ids, 'Author', style: 'display:block' %>
+        <%= form.collection_select(:author_ids, Author.all, :id, :name, {}, multiple: true) %>
+    </div> 
+
+    <%= link_to "Author Maintenance", new_author_path %>
+
     <div>
         <%=form.label :rating, style: "display:block"%>
         <%=form.text_field :rating %>

@@ -1,0 +1,20 @@
+<%= form_for @author do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.submit "Create Author" %>
+<% end %>
+
+<!-- Display existing author -->
+<% if @existing_author.any? %>
+  <h2>Existing Author:</h2>
+  <ul>
+    <% @existing_author.each do |existing_author| %>
+      <li>
+        <%= existing_author.name %>
+        <%= link_to "Show Options", author_path(existing_author) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
