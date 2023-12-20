@@ -6,6 +6,10 @@
   <%= f.submit "Create Author" %>
 <% end %>
 
+<div class="container-md create_blog_button">
+        <%= button_to "Create New Book Review", new_book_review_path, method: :get %>
+      </div>
+
 <!-- Display existing author -->
 <% if @existing_author.any? %>
   <h2>Existing Author:</h2>

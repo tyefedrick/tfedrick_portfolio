@@ -9,6 +9,9 @@
         <%= form.collection_select(:genre_ids, Genre.all, :id, :name, {}, multiple: true) %>
     </div>
 
+    <!-- Create New Genre button -->
+    <%= link_to "Genre Maintenance", new_genre_path %>
+
    <div>
         <%= form.label :author_ids, 'Author', style: 'display:block' %>
         <%= form.collection_select(:author_ids, Author.all, :id, :name, {}, multiple: true) %>
