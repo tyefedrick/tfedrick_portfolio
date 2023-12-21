@@ -1,21 +1,30 @@
 <div class="container-md">
   <div class="row">
-    <div class="col-md-12">
-      <div class="d-flex justify-content-between">
-        <%= button_to "Edit", edit_book_review_path(@book_review), method: :get %>
-        <%= button_to "Delete", book_review_path(@book_review), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="col-md-12 d-flex justify-content-between">
+      <%= button_to "Edit", edit_book_review_path(@book_review), method: :get %>
+      <%= button_to "Delete", book_review_path(@book_review), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
+  </div>
 
-<div class ="container-lg">
   <div class="row">
     <div class="col-md-3 book_review_book_image"> 
       <% if @book_review.image.attached? %>
         <%= image_tag @book_review.image %>
       <% end %>
     </div>
+    
     <div class="col-md-9">
       <div class="text-center book_review_show_title">
         <h1><%= @book_review.title %></h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-12 text-end">
+          <p class="book_review_show_author">By <%= @book_review.authors.pluck(:name).join(', ') %></p>
+        </div>
+        <div class="col-md-6 col-12 text-start">
+          <p class="book_review_show_release_date">Release Date: <%= @book_review.release_date %></p>
+        </div>
       </div>
     </div>
   </div>
@@ -23,27 +32,17 @@
 
 
 
-
       <div class="review-details">
         <p>Description Title <%= @book_review.description_title %></p>
         <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %></p>
-        <p>Authors: <%= @book_review.authors.pluck(:name).join(', ') %></p>
         <p>Rating: <%= @book_review.rating %></p>
         <p>Body: <%= @book_review.body %></p>
         <p>Notes: <%= @book_review.notes %></p>
-        <p>Release Date: <%= @book_review.release_date %></p>
         <p>Page Count: <%= @book_review.page_count %></p>
         <p>Review Posted Date: <%= @book_review.review_posted_date %></p>
         <p>ISBN: <%= @book_review.isbn %></p>
         <p>Publisher: <%= @book_review.publisher %></p>
         <p>Link: <%= @book_review.link %></p>
-
-        <div class="review-details">
-        
-          <% if @book_review.image.attached? %>
-          <%= image_tag @book_review.image %>
-          <% end %>
-        </div>
 
       </div>
     </div>
