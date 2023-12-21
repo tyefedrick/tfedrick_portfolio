@@ -8,6 +8,7 @@
 
       <div class="review-details">
         <p>Title: <%= @book_review.title %></p>
+        <p>Description Title <%= @book_review.description_title %></p>
         <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %></p>
         <p>Authors: <%= @book_review.authors.pluck(:name).join(', ') %></p>
         <p>Rating: <%= @book_review.rating %></p>
