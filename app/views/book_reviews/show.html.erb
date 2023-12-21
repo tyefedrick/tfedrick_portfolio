@@ -6,8 +6,25 @@
         <%= button_to "Delete", book_review_path(@book_review), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
 
+<div class ="container-lg">
+  <div class="row">
+    <div class="col-md-3 book_review_book_image"> 
+      <% if @book_review.image.attached? %>
+        <%= image_tag @book_review.image %>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <div class="text-center book_review_show_title">
+        <h1><%= @book_review.title %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
       <div class="review-details">
-        <p>Title: <%= @book_review.title %></p>
         <p>Description Title <%= @book_review.description_title %></p>
         <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %></p>
         <p>Authors: <%= @book_review.authors.pluck(:name).join(', ') %></p>

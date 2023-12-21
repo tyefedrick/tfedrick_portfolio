@@ -1,28 +1,79 @@
 <%= form_with(model: @book_review, url: book_review_path(@book_review), method: :patch) do |form| %>
-  <div>
-    <%= form.label :title, style: "display:block" %>
-    <%= form.text_field :title %>
-  </div>
+      <div>
+        <%=form.label :title, style: "display:block"%>
+        <%=form.text_field :title %>
+    </div>
 
-  <div>
-    <%= form.label :genre, style: "display:block" %>
-    <%= form.text_field :genre %>
-  </div>
+    <div class="field">
+        <%= form.label :description_title %>
+        <%= form.text_field :description_title %>
+    </div>
 
-  <div>
-    <%= form.label :rating, style: "display:block" %>
-    <%= form.text_field :rating %>
-  </div>
+    <div>
+        <%= form.label :genre_ids, 'Genres', style: 'display:block' %>
+        <%= form.collection_select(:genre_ids, Genre.all, :id, :name, {}, multiple: true) %>
+    </div>
 
-  <div>
-    <%= form.label :body, style: "display:block" %>
-    <%= form.text_area :body %>
-  </div>
+    <!-- Create New Genre button -->
+    <%= link_to "Genre Maintenance", new_genre_path %>
 
-  <div>
-    <%= form.label :notes, style: "display:block" %>
-    <%= form.text_area :notes %>
-  </div>
+   <div>
+        <%= form.label :author_ids, 'Author', style: 'display:block' %>
+        <%= form.collection_select(:author_ids, Author.all, :id, :name, {}, multiple: true) %>
+    </div> 
+
+    <%= link_to "Author Maintenance", new_author_path %>
+
+    <div>
+        <%=form.label :rating, style: "display:block"%>
+        <%=form.text_field :rating %>
+    </div>
+
+    <div>
+        <%=form.label :body, style: "display:block"%>
+        <%=form.rich_text_area :body %>
+    </div>
+
+    <div>
+        <%=form.label :notes, style: "display:block"%>
+        <%=form.text_area :notes%>
+    </div>
+
+        <!-- New fields -->
+    <div class="field">
+        <%= form.label :release_date %>
+        <%= form.date_field :release_date %>
+    </div>
+
+    <div class="field">
+        <%= form.label :page_count %>
+        <%= form.number_field :page_count %>
+    </div>
+
+    <div class="field">
+        <%= form.label :review_posted_date %>
+        <%= form.date_field :review_posted_date %>
+    </div>
+
+    <div class="field">
+        <%= form.label :isbn %>
+        <%= form.text_field :isbn %>
+    </div>
+
+    <div class="field">
+        <%= form.label :publisher %>
+        <%= form.text_field :publisher %>
+    </div>
+
+    <div class="field">
+        <%= form.label :link %>
+        <%= form.text_field :link %>
+    </div>
+
+    <div class="field">
+        <%= form.label :image %>
+        <%= form.file_field :image %>
+    </div>
 
   <%= form.submit "Update Book Review" %>
 <% end %>

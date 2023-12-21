@@ -4,6 +4,8 @@
 
 //bundle exec rake assets:precompile
 
+//if things continue to break use rake assets:clobber
+
 //Always lower case
 
 //make sure to do "yarn watch:css" when you start
@@ -304,7 +306,17 @@
   }
 }
 
-//Contact Page
+//book_reviews
+  //show.html.erb
+  //.book_review_book_image{
+
+  //}
+
+  .book_review_show_title{
+    font-size: 125px !important;
+    color: red !important;
+  }
+
 
 //Experimental
 .sith_photo {
@@ -312,6 +324,8 @@
   border-bottom: 1px solid rgba(0,0,0,.15);
   box-shadow: 0 3px 4px -1px rgba(0,0,0,.25);
 }
+
+//Contact Page
 
 //Footer 
 .footer_box{
