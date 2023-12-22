@@ -1,23 +1,24 @@
 #try this - rails generate scaffold
 
   class BookReviewsController < ApplicationController
-        def index 
+        def index
           @search_query = params[:title]
-          @authors = Author.all 
+          @authors = Author.all
           @genres = Genre.all
           @selected_genres = params[:genre_ids] || []
-          
-          if @selected_genres.empty?
-            @book_reviews = BookReview.all
-          else
-            @book_reviews = BookReview.includes(:genres).where(genres: { id: @selected_genres }).distinct
+      
+          @book_reviews = BookReview.all
+      
+          if @selected_genres.present?
+            selected_genre_ids = Genre.where(id: @selected_genres).pluck(:id)
+            @book_reviews = @book_reviews.joins(:genres).where(genres: { id: selected_genre_ids }).distinct
           end
-          
+      
           if @search_query.present?
             @book_reviews = @book_reviews.where("title ILIKE ?", "%#{@search_query}%")
           end
-
-          @all_reviews = BookReview.all  # Fetch all book reviews
+      
+          @all_reviews = BookReview.all
         end
 
         def show  

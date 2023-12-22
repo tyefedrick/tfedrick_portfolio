@@ -10,59 +10,58 @@
       <!-- Create New Author button -->
       <%= link_to "Author Maintenance", new_author_path %>
 
-
-
       <div class="container-md create_blog_button">
         <%= button_to "Create New Book Review", new_book_review_path, method: :get %>
       </div>
 
-<%= render 'search_form' %>
+      <%= render 'search_form' %>
 
-<ul>
-  <% @book_reviews.each do |book_review| %>
-    <li><%= link_to book_review.title, book_review_path(book_review) %></li>
-  <% end %>
-</ul>
-
+      <ul>
+        <% @book_reviews.each do |book_review| %>
+          <li><%= link_to book_review.title, book_review_path(book_review) %></li>
+        <% end %>
+      </ul>
 
       <!-- Filter form for selecting genres -->
       <%= form_tag(book_reviews_path, method: :get) do %>
         <div class="form-group">
           <%= label_tag 'genre_ids[]', 'Select Genres:' %>
           <%= select_tag 'genre_ids[]', options_from_collection_for_select(@genres, 'id', 'name', @selected_genres), multiple: true, class: 'form-control' %>
+          <label for="select_all_genres">
+            <input type="checkbox" id="select_all_genres" name="select_all_genres"> Select All Genres
+          </label>
         </div>
         <%= submit_tag 'Filter', class: 'btn btn-primary' %>
       <% end %>
 
-      <% if @book_reviews.present? %>
-        <h2>Filtered Book Reviews</h2>
-        <% @book_reviews.each do |review| %>
+      <!-- All Book Reviews -->
+      <!-- All Book Reviews -->
+      <h2>All Book Reviews</h2>
+      <% @all_reviews.each do |post| %>
+        <% if @selected_genres.empty? || (post.genre_ids & @selected_genres.map(&:to_i)).any? %>
           <div class="card mb-4">
             <div class="card-body">
-              <h3><%= link_to review.title, book_review_path(review) %></h3>
-              <p>Rating: <%= review.rating %></p>
-              <p><%= review.body %></p>
-              <p>Genres: <%= review.genres.pluck(:name).join(', ') %></p>
+              <h3><%= link_to post.title, book_review_path(post) %></h3>
+              <p>Rating: <%= post.rating %></p>
+              <p><%= post.body %></p>
+              <p>Genres: <%= post.genres.pluck(:name).join(', ') %></p>
             </div>
           </div>
         <% end %>
-      <% else %>
-        <p>No book reviews match the selected genres.</p>
-      <% end %>
-
-      <!-- All Book Reviews (if needed) -->
-      <h2>All Book Reviews</h2>
-      <% @all_reviews.each do |post| %>
-        <div class="card mb-4">
-          <div class="card-body">
-            <h3><%= link_to post.title, book_review_path(post) %></h3>
-            <p>Rating: <%= post.rating %></p>
-            <p><%= post.body %></p>
-            <p>Genres: <%= post.genres.pluck(:name).join(', ') %></p>
-          </div>
-        </div>
       <% end %>
 
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('#select_all_genres').change(function() {
+      if ($(this).is(':checked')) {
+        $('select[name="genre_ids[]"] option').prop('selected', true);
+      } else {
+        $('select[name="genre_ids[]"] option').prop('selected', false);
+      }
+    });
+  });
+</script>
