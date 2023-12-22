@@ -12,3 +12,9 @@
             }
             })
         </script>
+
+2. Horizontal Lines 
+     <div class="text-center">
+      <!-- Horizontal Line -->
+      <hr class="my-2 book_review_show_horizontal_line mx-auto">
+    </div>

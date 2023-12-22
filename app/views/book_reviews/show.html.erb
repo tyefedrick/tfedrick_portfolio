@@ -7,12 +7,15 @@
     </div>
   </div>
 
+  <a href="<%= book_reviews_path %>" class="btn btn-primary">Home</a>
+
 <div class="row">
   <!-- Book Image Column -->
   <div class="col-md-3 book_review_book_image"> 
     <% if @book_review.image.attached? %>
       <%= image_tag @book_review.image %>
     <% end %>
+    <p><a href="<%= @book_review.link %>" class="btn btn-primary" target="_blank">Buy on Amazon</a></p>
   </div>
 
   <!-- Content Column -->
@@ -38,17 +41,29 @@
       <h2 class="text-center book_review_show_description_title"><%= @book_review.description_title %></h2> 
     </div>
     
-    <div class="text-center">
-      <!-- Horizontal Line -->
-      <hr class="my-2 book_review_show_horizontal_line mx-auto">
-    </div>
+    <!-- Add the tab structure here -->
+      <ul class="nav nav-tabs" id="myTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="body-tab" data-toggle="tab" href="#body" role="tab" aria-controls="body" aria-selected="true">Review</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="false">Notes</a>
+        </li>
+      </ul>
 
-    <div class="col-12 mx-auto"> <!-- Removed the col-10 to make it full width -->
-      <!-- Body -->
-      <div class="">
-        <p><%= @book_review.body %></p>
+      <div class="tab-content" id="myTabContent">
+        <!-- Body Tab Content -->
+        <div class="tab-pane fade show active" id="body" role="tabpanel" aria-labelledby="body-tab">
+          <div class="">
+            <p><%= @book_review.body %></p>
+          </div>
+        </div>
+
+        <!-- Notes Tab Content -->
+        <div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">
+          <p><%= @book_review.notes %></p>
+        </div>
       </div>
-    </div>
 
     <div class="container mt-3 book_review_show_book_misc_details"> <!-- Added margin-top to separate container from the content above -->
       <div class="row">
@@ -65,7 +80,7 @@
         </div>
         <div class="col-md-4">
           <p>Review Posted Date: <%= @book_review.review_posted_date %></p>
-          <!-- Add content here -->
+          <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %></p>
         </div>
       </div>
     </div>
@@ -73,17 +88,11 @@
 </div>
 
 
-      <div class="review-details">
-        <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %></p>
-        <p>Rating: <%= @book_review.rating %></p>
-        <p>Body: <%= @book_review.body %></p>
-        <p>Notes: <%= @book_review.notes %></p>
-        <p>Review Posted Date: <%= @book_review.review_posted_date %></p>
-        <p>ISBN: <%= @book_review.isbn %></p>
-        <p>Publisher: <%= @book_review.publisher %></p>
-        <p>Link: <%= @book_review.link %></p>
-
-      </div>
-    </div>
-  </div>
-</div>
+<script>
+  $(document).ready(function() {
+    $('#myTabs a').click(function(e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+  });
+</script>
