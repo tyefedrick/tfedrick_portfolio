@@ -35,20 +35,19 @@
       <% end %>
 
       <!-- All Book Reviews -->
-      <!-- All Book Reviews -->
       <h2>All Book Reviews</h2>
-      <% @all_reviews.each do |post| %>
-        <% if @selected_genres.empty? || (post.genre_ids & @selected_genres.map(&:to_i)).any? %>
-          <div class="card mb-4">
-            <div class="card-body">
-              <h3><%= link_to post.title, book_review_path(post) %></h3>
-              <p>Rating: <%= post.rating %></p>
-              <p><%= post.body %></p>
-              <p>Genres: <%= post.genres.pluck(:name).join(', ') %></p>
+        <% @all_reviews.each do |post| %>
+          <% if @selected_genres.empty? || (post.genres.map(&:id) & @selected_genres.map(&:to_i)).any? || post.genres.empty? %>
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3><%= link_to post.title, book_review_path(post) %></h3>
+                <p>Rating: <%= post.rating %></p>
+                <p><%= post.body %></p>
+                <p>Genres: <%= post.genres.pluck(:name).join(', ') %></p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
 
     </div>
   </div>

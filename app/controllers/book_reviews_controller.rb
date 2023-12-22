@@ -15,7 +15,7 @@
           end
       
           if @search_query.present?
-            @book_reviews = @book_reviews.where("title ILIKE ?", "%#{@search_query}%")
+            @book_reviews = @book_reviews.where("LOWER(title) LIKE ?", "%#{@search_query.downcase}%")
           end
       
           @all_reviews = BookReview.all
