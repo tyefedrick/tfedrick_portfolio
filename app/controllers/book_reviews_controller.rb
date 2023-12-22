@@ -1,6 +1,7 @@
 #try this - rails generate scaffold
 
   class BookReviewsController < ApplicationController
+    include ActiveStorage::SetCurrent
         def index
           @search_query = params[:title]
           @authors = Author.all
@@ -19,6 +20,7 @@
           end
       
           @all_reviews = BookReview.all
+          ActiveStorage::Current.url_options = Rails.application.routes.default_url_options
         end
 
         def show  

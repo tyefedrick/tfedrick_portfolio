@@ -1,6 +1,6 @@
 <div class="container-md">
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-12">
 
       <h1>Book Reviews</h1>
 
@@ -35,20 +35,42 @@
       <% end %>
 
       <!-- All Book Reviews -->
-      <h2>All Book Reviews</h2>
-        <% @all_reviews.each do |post| %>
-          <% if @selected_genres.empty? || (post.genres.map(&:id) & @selected_genres.map(&:to_i)).any? || post.genres.empty? %>
-            <div class="card mb-4">
-              <div class="card-body">
-                <h3><%= link_to post.title, book_review_path(post) %></h3>
-                <p>Rating: <%= post.rating %></p>
-                <p><%= post.body %></p>
-                <p>Genres: <%= post.genres.pluck(:name).join(', ') %></p>
+      <div class="col-md-12 justify-content-center">
+        <h2>All Book Reviews</h2>
+        <div class="row justify-content-center">
+          <% @all_reviews.each do |post| %>
+            <% if @selected_genres.empty? || (post.genres.map(&:id) & @selected_genres.map(&:to_i)).any? || post.genres.empty? %>
+              <div class="col-md-4">
+                <div class="card mb-4">
+                  <% @all_reviews.each do |post| %>
+                    <% if @selected_genres.empty? || (post.genres.map(&:id) & @selected_genres.map(&:to_i)).any? || post.genres.empty? %>
+                      <div class="col-md-4">
+                        <div class="card mb-4">
+                          <% if post.image.attached? %>
+                            <img src="<%= rails_blob_path(post.image, only_path: true) %>" class="card-img-top" alt="Book Cover">
+                          <% else %>
+                            <img src="/path/to/placeholder_image.jpg" class="card-img-top" alt="Placeholder Image">
+                          <% end %>
+                          <div class="card-body">
+                            <h5 class="card-title"><%= link_to post.title, book_review_path(post) %></h5>
+                            <p class="card-text">Author: <%= post.authors.pluck(:name).join(', ') %></p>
+                            <p class="card-text">Genres: <%= post.genres.pluck(:name).join(', ') %></p>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= link_to post.title, book_review_path(post) %></h5>
+                    <p class="card-text">Author: <%= post.authors.pluck(:name).join(', ') %></p>
+                    <p class="card-text">Genres: <%= post.genres.pluck(:name).join(', ') %></p>
+                  </div>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-
+        </div>
+      </div>
     </div>
   </div>
 </div>
