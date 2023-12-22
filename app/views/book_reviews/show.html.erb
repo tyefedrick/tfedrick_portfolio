@@ -32,7 +32,10 @@
       </div>
       <div class="col-md-6 col-12 text-start">
         <!-- Release Date -->
-        <p class="book_review_show_release_date">Release Date: <%= @book_review.release_date.strftime('%b %d, %Y') %></p>
+        <% if @book_review.release_date.present? %> 
+          <p class="book_review_show_release_date">Release Date: <%= @book_review.release_date.strftime('%b %d, %Y') %>
+          </p>
+        <% end %>
       </div>
     </div>
 
@@ -69,9 +72,11 @@
       <div class="row">
         <div class="col-md-4">
           <!-- First Container Content -->
-          <p class="book_review_show_release_date">
-            Release Date: <%= @book_review.release_date.strftime('%b %d, %Y') %>
-          </p>
+          <% if @book_review.release_date.present? %>
+            <p class="book_review_show_release_date">
+              Release Date: <%= @book_review.release_date.strftime('%b %d, %Y') %>
+            </p>
+          <% end %>
           <p>ISBN: <%= @book_review.isbn %></p>
         </div>
         <div class="col-md-4">
@@ -79,8 +84,12 @@
           <p>Publisher: <%= @book_review.publisher %></p>
         </div>
         <div class="col-md-4">
-          <p>Review Posted Date: <%= @book_review.review_posted_date %></p>
-          <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %></p>
+          <% if @book_review.review_posted_date.present? %>
+            <p>Review Posted Date: <%= @book_review.review_posted_date.strftime('%b %d, %Y') %>
+            </p>
+          <% end %>
+          <p>Genres: <%= @book_review.genres.pluck(:name).join(', ') %>
+          </p>
         </div>
       </div>
     </div>
