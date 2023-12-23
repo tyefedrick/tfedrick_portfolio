@@ -337,6 +337,33 @@
     padding-right: 0;
   }
 
+  .book_review_show_custom_card{
+    width: 100%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; /* Center horizontally */
+    max-width: 100%; /* Ensure the image doesn't exceed the card width */
+    max-height: 100%; 
+    padding: 25px;
+  }
+
+  .book_review_show_custom_card_body{
+    display: block;
+    margin: 0 auto; /* Center horizontally */
+    max-width: 100%; /* Ensure the image doesn't exceed the card width */
+    max-height: 100%;
+  }
+
+  .book_review_show_custom_card_image{
+    width: 55%; /* Set the width to 100% to fit the card */
+    height: 55%;
+
+    display: block;
+    margin: 0 auto; 
+    max-width: 100%; 
+    max-height: 100%;
+  }
+
 //Experimental
 .sith_photo {
   border-top: 1px solid rgba(0,0,0,.15);
