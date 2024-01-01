@@ -373,6 +373,90 @@
 
 //Contact Page
 
+//portfolios
+.portfolio-item {
+  border: 1px solid #ccc;
+  margin: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  height: 300px; /* Set a fixed height for portfolio-item */
+  position: relative; /* Add this */
+}
+
+/* Style the portfolio image */
+.portfolio-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adjust the image to cover the container */
+}
+
+/* Style the portfolio content (initially hidden) */
+.portfolio-content {
+  position: absolute;
+  bottom: 0; /* Display content at the bottom */
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9); /* Add a background color */
+  transition: transform 0.3s;
+  transform: translateY(78%); /* Initially hide the content below the box */
+  color: black;
+  z-index: 1; /* Set a higher z-index to make it appear on top */
+}
+
+/* Style the content inside the portfolio item box */
+.portfolio-content p {
+  margin: 5px 0;
+}
+
+/* Style the "Show this portfolio" link */
+.portfolio-content a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* Show the portfolio content on hover */
+.portfolio-item:hover .portfolio-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom CSS */
+.portfolios-index-button-group {
+  display: flex;
+  justify-content: space-between; /* Add space between buttons */
+  align-items: center; /* Center align buttons vertically */
+}
+
+.portfolios-index-button-group .btn {
+  flex: 1; /* Make both buttons equal width */
+  margin-right: 10px; /* Add margin between buttons */
+  margin-left: 10px;
+}
+
+
+/* Style the "Edit" button container (initially hidden) */
+.portfolio-edit-button {
+  position: absolute;
+  top: 10px; /* Adjust the top position as needed */
+  left: 10px; /* Adjust the left position as needed */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s;
+  z-index: 2; /* Ensure it appears above other elements */
+}
+
+/* Show the "Edit" button container on hover */
+.portfolio-item:hover .portfolio-edit-button {
+  opacity: 1;
+}
+
+.portfolio-title {
+  background-color: #dc3545;
+  /* Other styles for text color, padding, etc. */
+}
+
+
 //Footer 
 .footer_box{
   border-top: 1px solid rgba(0,0,0,.15);
