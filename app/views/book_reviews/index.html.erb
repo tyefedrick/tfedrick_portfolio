@@ -53,7 +53,9 @@
                   <% end %>
                   <div class="card-body book_review_show_custom_card_body">
                     <p class="card-text"><%= post.genres.pluck(:name).join(', ') %></p> 
-                    <h5 class="card-title"><%= link_to post.title, book_review_path(post) %></h5>
+                    <h5 class="card-title">
+                      <%= link_to post.title, book_review_path(post), class: "custom-card-title-custom-link" %>
+                    </h5>
                     <p class="card-text">By: <%= post.authors.pluck(:name).join(', ') %></p>
                   </div>
                 </div>

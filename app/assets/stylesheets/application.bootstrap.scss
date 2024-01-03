@@ -345,6 +345,32 @@
     max-width: 100%; /* Ensure the image doesn't exceed the card width */
     max-height: 100%; 
     padding: 25px;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05); /* Increase the size by 5% on hover */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover for a raised effect */
+    }
+
+    h5.card-title {
+      transition: text-decoration 0.3s; /* Add a transition for the text-decoration property */
+    }
+  
+    &:hover h5.card-title {
+      text-decoration: underline; /* Underline the title on hover */
+      color:#dc3545;
+    }
+  }
+
+  .custom-card-title-custom-link{
+    text-decoration: none; /* Remove the default underline */
+    transition: text-decoration 0.3s; /* Add a transition for text-decoration */
+    color: #dc3545;
+  
+    &:hover {
+      text-decoration: underline; /* Underline on hover */
+      color:#dc3545;
+    }
   }
 
   .book_review_show_custom_card_body{
