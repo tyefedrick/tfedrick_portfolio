@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :book_reviews
   resources :genres
   resources :authors
+  get 'search_results', to: 'book_reviews#search_results', as: 'search_results'
 
 
 

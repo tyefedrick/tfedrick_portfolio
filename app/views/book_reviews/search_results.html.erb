@@ -1,0 +1,16 @@
+<!-- app/views/book_reviews/search_results.html.erb -->
+<div class="container">
+  <h1>Search Results</h1>
+  <% if @search_results.present? %>
+    <ul>
+      <% @search_results.each do |book_review| %>
+        <li>
+          <%= link_to book_review.title, book_review_path(book_review) %>
+          <!-- Display other details of the book review here as needed -->
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No results found for "<%= @search_query %>".</p>
+  <% end %>
+</div>
