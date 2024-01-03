@@ -20,6 +20,12 @@
 
       <%= render 'search_form' %>
 
+
+      <!-- Button to toggle the filter form -->
+      <button id="showFilterButton" class="btn btn-primary">Show Filter</button>
+
+
+
       <!-- Filter form for selecting genres -->
       <%= form_tag(book_reviews_path, method: :get, id: 'genreFilterForm', style: 'display: none;') do %>
         <div class="form-group">
@@ -31,10 +37,6 @@
         </div>
         <%= submit_tag 'Filter', class: 'btn btn-primary' %>
       <% end %>
-
-        <!-- Button to toggle the filter form -->
-        <button id="showFilterButton" class="btn btn-primary">Show Filter</button>
-
 
       <!-- All Book Reviews -->
       <div class="col-md-12 justify-content-center">
@@ -75,10 +77,18 @@
       } else {
         $('select[name="genre_ids[]"] option').prop('selected', false);
       }
+
+      // Toggle the button text
+      var buttonText = $('#showFilterButton').text();
+      $('#showFilterButton').text(buttonText === 'Show Filter' ? 'Hide Filter' : 'Show Filter');
     });
 
     $('#showFilterButton').click(function() {
       $('#genreFilterForm').toggle(); // Show/hide the form when the button is clicked
+
+      // Toggle the button text
+      var buttonText = $('#showFilterButton').text();
+      $('#showFilterButton').text(buttonText === 'Show Filter' ? 'Hide Filter' : 'Show Filter');
     });
   });
 </script>
